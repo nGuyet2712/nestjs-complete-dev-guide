@@ -16,16 +16,16 @@ export function Serialize(dto: ClassConstructor) {
   return UseInterceptors(new SerializeInterceptor(dto));
 }
 
-export class SerializeInterceptor implements NestInterceptor {
+class SerializeInterceptor implements NestInterceptor {
   constructor(private dto: ClassConstructor) {}
 
   intercept(
     context: ExecutionContext,
-    next: CallHandler<any>,
+    handler: CallHandler<any>,
   ): Observable<any> {
     // run before the req is handled
 
-    return next.handle().pipe(
+    return handler.handle().pipe(
       map((data: any) => {
         // run before the response is sent
         return plainToClass(this.dto, data, {

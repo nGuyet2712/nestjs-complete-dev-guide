@@ -1,11 +1,29 @@
-### Create a new user
+### Sign up
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email":"c@mail.com",
+    "email":"he@mail.com",
     "password":"hello2"
 }
+
+### Sign in
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email":"he@mail.com",
+    "password":"hello2"
+}
+
+### Sign out
+POST http://localhost:3000/auth/signout
+Content-Type: application/json
+
+
+### Get me
+GET http://localhost:3000/auth/me
+Content-Type: application/json
 
 
 ### Find a user with id
@@ -13,7 +31,7 @@ GET http://localhost:3000/auth/1
 
 
 ### Find all users with email
-GET http://localhost:3000/auth?email=a@mail.com
+GET http://localhost:3000/auth?email=cd@mail.com
 
 
 ### Delete a user with id
@@ -27,4 +45,3 @@ Content-Type: application/json
 {
     "email":"aa@mail.com"
 }
-
